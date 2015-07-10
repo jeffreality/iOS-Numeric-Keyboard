@@ -12,25 +12,25 @@ The number pad can be configured to display a number pad (with or without decima
 
 ### iPad : Landscape
 
-![iPad displaying NumPad as floating point numeric pad, in landscape](https://github.com/jeffreality/iOS-Numeric-Keyboard/README-images/iPad-landscape.png)
+![iPad displaying NumPad as floating point numeric pad, in landscape](README-images/iPad-landscape.png?raw=true)
 
 The above image shows how the NumPad replacement looks on an iPad as a floating point numeric pad, in landscape.
 
-![iPad displaying NumPad as floating point calculator, in landscape](https://github.com/jeffreality/iOS-Numeric-Keyboard/README-images/iPad-landscape-calculator.png)
+![iPad displaying NumPad as floating point calculator, in landscape](README-images/iPad-landscape-calculator.png?raw=true)
 
 This is the same control, with the calculator feature enabled.  The backspace button becomes a clear button.  (This screen shows the Prev and Next buttons instead of Done, but those were only set to illustrate another difference in capability.)
 
 ### iPad : Portrait
 
-![iPad displaying NumPad as floating point calculator, in portrait](https://github.com/jeffreality/iOS-Numeric-Keyboard/README-images/iPad-portrait-calculator.png)
+![iPad displaying NumPad as floating point calculator, in portrait](README-images/iPad-portrait-calculator.png?raw=true)
 
 This is the portrait view of the control, showing the calculator functionality.
 
 ### iPhone 4s example
 
-![iPhone displaying NumPad in landscape](https://github.com/jeffreality/iOS-Numeric-Keyboard/README-images/iPhone4s-landscape.png)
+![iPhone displaying NumPad in landscape](README-images/iPhone4s-landscape.png?raw=true)
 
-![iPhone displaying NumPad with calculator in portrait](https://github.com/jeffreality/iOS-Numeric-Keyboard/README-images/iPhone4s-portrait.png)
+![iPhone displaying NumPad with calculator in portrait](README-images/iPhone4s-portrait.png?raw=true)
 
 This is the portrait view of the control, showing the calculator functionality.
 
