@@ -80,6 +80,10 @@ typedef enum {
     return self;
 }
 
+- (void) dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 -(void) checkMaxKeysPressed {
     if (self.characterMax && self.textField.text.length > [self.characterMax longValue]) {
         self.textField.text = [self.textField.text substringToIndex:self.textField.text.length-(self.textField.text.length>0)];

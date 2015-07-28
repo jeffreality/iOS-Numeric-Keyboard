@@ -22,7 +22,6 @@
     [NumPad setKeyboardFor:self.amountTextField withDecimal:YES andCalculator:YES maxCharacters:8];
     self.amountTextField.tag = 1;
     
-    
 }
 
 - (void)didReceiveMemoryWarning {
