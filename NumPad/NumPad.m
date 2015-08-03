@@ -52,8 +52,8 @@ typedef enum {
         numpad.characterMax = nil;
     textField.inputView = numpad;
     
-    [numpad enableDecimalEntry:dec];
     [numpad enableCalculator:calc];
+    [numpad enableDecimalEntry:dec];
 }
 
 +(void) setKeyboardFor:(UITextField *)textField {
