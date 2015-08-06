@@ -28,12 +28,15 @@ typedef enum {
 @property (nonatomic, assign) UITextField *textField;
 @property (nonatomic, strong) NSNumber    *characterMax;
 
-@property (nonatomic, strong) NSNumber    *calculatorDisplay;
 @property (nonatomic, strong) NSNumber    *clearShouldBackspace;
 
 @property (nonatomic, strong) NSNumber    *previousTotal;
 @property (nonatomic, strong) NSNumber    *operation;
 @property (nonatomic, strong) NSNumber    *operationClear;
+
+@property (nonatomic, strong) NSNumber    *showDecimal;
+@property (nonatomic, strong) NSNumber    *showCalculator;
+@property (nonatomic, strong) NSNumber    *showPrevNext;
 
 @end
 
@@ -54,6 +57,7 @@ typedef enum {
     
     [numpad enableCalculator:calc];
     [numpad enableDecimalEntry:dec];
+    [numpad setCompletionButtonsToDone];
 }
 
 +(void) setKeyboardFor:(UITextField *)textField {
@@ -238,29 +242,34 @@ typedef enum {
 }
 
 -(void) setCompletionButtonsToDone {
+    self.showPrevNext = @NO;
     self.keyFunctionTop.hidden = YES;
     [self setButtonTitleForBottom:@"Done"];
 }
 
 -(void) setCompletionButtonsToPrevNext {
+    self.showPrevNext = @YES;
     self.keyFunctionTop.hidden = NO;
     [self setButtonTitleForTop:@"Prev"];
     [self setButtonTitleForBottom:@"Next"];
 }
 
 -(void) enableDecimalEntry:(BOOL)enableDecimal {
-    if (enableDecimal)
+    if (enableDecimal) {
+        self.showDecimal = @YES;
         self.keyPeriod.hidden = NO;
-    else
+    } else {
+        self.showDecimal = @NO;
         self.keyPeriod.hidden = YES;
+    }
 }
 
 -(void) enableCalculator:(BOOL)enableCalculator {
     if (enableCalculator) {
-        self.calculatorDisplay = @YES;
+        self.showCalculator = @YES;
         [self setClearButtonToAllClear];
     } else {
-        self.calculatorDisplay = @NO;
+        self.showCalculator = @NO;
         [self setClearButtonToBackspace];
     }
     [self centerPad]; // redraw the display
@@ -318,7 +327,7 @@ typedef enum {
     
     NSArray *numbers = @[@7, @8, @9, @4, @5, @6, @1, @2, @3, @0];
     
-    if ([self.calculatorDisplay isEqual:@NO]) {
+    if ([self.showCalculator isEqual:@NO]) {
         numbers = @[@1, @2, @3, @4, @5, @6, @7, @8, @9, @0];
     }
     
@@ -331,7 +340,7 @@ typedef enum {
     }
     
     NSInteger calculatorIndex = 0;
-    if ([self.calculatorDisplay isEqual:@YES]) {
+    if ([self.showCalculator isEqual:@YES]) {
         
         // add calc buttons here
         
@@ -356,6 +365,8 @@ typedef enum {
     }
     
     self.keyPeriod = [self createButtonWithTitle:@"." andPosition:CGPointMake(1, 3)];
+    if ([self.showDecimal isEqual:@NO])
+        self.keyPeriod.hidden = YES;
     
     self.keyBack = [self createButtonWithTitle:[self.keyBack titleForState:UIControlStateNormal] andPosition:CGPointMake(3 + calculatorIndex, 0)];
     
@@ -367,6 +378,12 @@ typedef enum {
     
     [self.keyFunctionTop addTarget:self action:@selector(keyFunctionTopAction) forControlEvents:UIControlEventTouchUpInside];
     [self.keyFunctionBottom addTarget:self action:@selector(keyFunctionBottomAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    if ([self.showPrevNext isEqual:@YES]) {
+        [self setCompletionButtonsToPrevNext];
+    } else {
+        [self setCompletionButtonsToDone];
+    }
     
     // set contentView frame to only encompass buttons
     

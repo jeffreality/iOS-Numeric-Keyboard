@@ -68,7 +68,7 @@
                                             <action selector="toggleCalculator:" destination="BYZ-38-t0r" eventType="valueChanged" id="DKc-Nw-jiP"/>
                                         </connections>
                                     </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prev/Next (vs. Done)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-ll-hoI">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Done (vs. Prev/Next)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bR-ll-hoI">
                                         <rect key="frame" x="85" y="103" width="200" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="P1j-pS-4Ht"/>
